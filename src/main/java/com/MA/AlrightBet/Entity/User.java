@@ -34,8 +34,7 @@ public class User {
 
     }
 
-    public User(int id, String email, String authProvider, String username) {
-        this.id = id;
+    public User( String email, String authProvider, String username) {
         this.email = email;
         this.authProvider = authProvider;
         this.username = username;

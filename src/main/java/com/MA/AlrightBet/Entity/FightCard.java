@@ -34,4 +34,55 @@ public class FightCard {
     //
 
 
+
+
+    public FightCard( ) {
+    }
+
+    public FightCard(String opponent_1, String opponent_2, List<Bet> opponent_1_bets, List<Bet> opponent_2_bets) {
+        this.opponent_1 = opponent_1;
+        this.opponent_2 = opponent_2;
+        this.opponent_1_bets = opponent_1_bets;
+        this.opponent_2_bets = opponent_2_bets;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getOpponent_1() {
+        return opponent_1;
+    }
+
+    public void setOpponent_1(String opponent_1) {
+        this.opponent_1 = opponent_1;
+    }
+
+    public String getOpponent_2() {
+        return opponent_2;
+    }
+
+    public void setOpponent_2(String opponent_2) {
+        this.opponent_2 = opponent_2;
+    }
+
+    public List<Bet> getOpponent_1_bets() {
+        return opponent_1_bets;
+    }
+
+    public void setOpponent_1_bets(List<Bet> opponent_1_bets) {
+        this.opponent_1_bets = opponent_1_bets;
+    }
+
+    public List<Bet> getOpponent_2_bets() {
+        return opponent_2_bets;
+    }
+
+    public void setOpponent_2_bets(List<Bet> opponent_2_bets) {
+        this.opponent_2_bets = opponent_2_bets;
+    }
 }

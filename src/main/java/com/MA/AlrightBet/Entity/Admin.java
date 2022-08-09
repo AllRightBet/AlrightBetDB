@@ -21,8 +21,7 @@ public class Admin {
 
     }
 
-    public Admin(int id, String email, String authProvider, String username) {
-        this.id = id;
+    public Admin(  String email, String authProvider, String username) {
         this.email = email;
         this.username = username;
     }
