@@ -13,7 +13,11 @@ public class Bet {
     private int id;
 
     private double bet_amount;
+
+    @ManyToMany
     private User voter;
+
+    @ManyToMany
     private FightCard event;
 
 
