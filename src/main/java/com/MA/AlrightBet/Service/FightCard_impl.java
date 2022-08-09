@@ -11,38 +11,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FightCard_impl implements FightCardService {
-    @Autowired
-    private AdminDao adminDao;
-
-    @Autowired
-    private UserDao userDao;
-
-    @Autowired
-    private BetDao betDao;
 
     @Autowired
     private FightCardDao fightCardDao;
 
+
     @Override
     public List<FightCard> fetch_all_fight_card() {
-        return null;
+        return this.fightCardDao.findAll();
     }
 
     @Override
-    public FightCard create_fight_card() {
-        return null;
+    public FightCard getFightCardById(int id) {
+        Optional<FightCard> fightCard = this.fightCardDao.findById(id);
+        if (fightCard.isEmpty()) {
+            return null;
+        }
+        return fightCard.get();
+    }
+
+
+    @Override
+    public FightCard create_fight_card(FightCard fightCard) {
+        return this.fightCardDao.save(fightCard);
     }
 
     @Override
-    public void delete_fight_card() {
-
+    public void delete_fight_card(int id) {
+        this.fightCardDao.deleteById(id);
     }
 
     @Override
-    public FightCard update_fight_card() {
+    public FightCard update_fight_card(FightCard fightCard) {
+        Optional<FightCard> q = this.fightCardDao.findById(fightCard.getId());
+        if (q.isPresent()) {
+            this.fightCardDao.save(fightCard);
+            return fightCard;
+        }
         return null;
     }
 }

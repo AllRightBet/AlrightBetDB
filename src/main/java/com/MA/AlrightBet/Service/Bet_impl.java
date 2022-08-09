@@ -11,39 +11,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class Bet_impl implements BetService {
-    @Autowired
-    private AdminDao adminDao;
-
-    @Autowired
-    private UserDao userDao;
 
     @Autowired
     private BetDao betDao;
 
-    @Autowired
-    private FightCardDao fightCardDao;
-
 
     @Override
     public List<Bet> fetch_all_bets() {
-        return null;
+        return this.betDao.findAll();
     }
 
     @Override
-    public Bet create_bet() {
-        return null;
+    public Bet getBetById(int id) {
+        Optional<Bet> bet = this.betDao.findById(id);
+        if (bet.isEmpty()) {
+            return null;
+        }
+        return bet.get();
+    }
+
+
+    @Override
+    public Bet create_bet(Bet bet) {
+        return this.betDao.save(bet);
     }
 
     @Override
-    public void delete_bet() {
-
+    public void delete_bet(int id) {
+        this.betDao.deleteById(id);
     }
 
     @Override
-    public Bet update_bet() {
+    public Bet update_bet(Bet bet) {
+        Optional<Bet> q = this.betDao.findById(bet.getId());
+        if (q.isPresent()) {
+            this.betDao.save(bet);
+            return bet;
+        }
         return null;
     }
 }

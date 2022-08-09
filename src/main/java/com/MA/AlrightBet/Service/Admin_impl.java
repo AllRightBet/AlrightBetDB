@@ -9,39 +9,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class Admin_impl implements AdminService {
     @Autowired
     private AdminDao adminDao;
 
-    @Autowired
-    private UserDao userDao;
-
-    @Autowired
-    private BetDao betDao;
-
-    @Autowired
-    private FightCardDao fightCardDao;
-
 
     @Override
     public List<Admin> fetch_all_admins() {
-        return null;
+        return this.adminDao.findAll();
+    }
+
+    @Override // GET --> /courses/{id}
+    public Admin getAdminById(int id) {
+        Optional<Admin> a = this.adminDao.findById(id);
+        if (a.isEmpty()) {
+            return null;
+        }
+        return a.get();
     }
 
     @Override
-    public Admin create_admin() {
-        return null;
+    public Admin create_admin(Admin admin) {
+        return this.adminDao.save(admin);
     }
 
     @Override
-    public void delete_admin() {
-
+    public void delete_admin(int id) {
+        this.adminDao.deleteById(id);
     }
 
     @Override
-    public Admin update_admin() {
+    public Admin update_admin(Admin admin) {
+        Optional<Admin> q = this.adminDao.findById(admin.getId());
+        if (q.isPresent()) {
+            this.adminDao.save(admin);
+            return admin;
+        }
         return null;
     }
+
 }
