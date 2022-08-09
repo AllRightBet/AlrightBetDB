@@ -12,6 +12,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
+    private double wallet_balance;
     private String email;
     private String authProvider;
     private String username;
@@ -37,6 +39,16 @@ public class User {
         this.email = email;
         this.authProvider = authProvider;
         this.username = username;
+        this.wallet_balance = 10d;
+    }
+
+
+    public double getWallet_balance() {
+        return wallet_balance;
+    }
+
+    public void setWallet_balance(double wallet_balance) {
+        this.wallet_balance = wallet_balance;
     }
 
 
