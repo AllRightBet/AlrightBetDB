@@ -1,6 +1,7 @@
 package com.MA.AlrightBet.Security;
 
 
+import com.MA.AlrightBet.Dao.AdminDao;
 import com.MA.AlrightBet.Dao.UserDao;
 import com.MA.AlrightBet.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class SecurityConfig {
 
     @Autowired
     UserDao userDao;
+
+    @Autowired
+    AdminDao adminDao;
 
 
     // DEFINE WHICH ENDPOINTS REQUIRE AUTH
@@ -36,6 +40,7 @@ public class SecurityConfig {
                             //CHECK IF EMAIL ALREADY IN DATABASE
                             if (userDao.findByEmail(user_auth_details.getAttribute("email")).isEmpty()) {
                                 User user = new User(user_auth_details.getAttribute("email"), user_auth_details.getAttribute("iss").toString(), user_auth_details.getName());
+                                user.setAdmin_role(adminDao.findByEmail(user.getEmail()).isPresent());
                                 userDao.save(user);
                             }
 

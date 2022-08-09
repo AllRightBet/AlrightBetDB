@@ -24,24 +24,29 @@ public class User {
     private String city;
     private int zip;
     private int age;
+    private boolean admin_role;
+
     private ArrayList<Bet> bet_history;
 
 
-
-
-
-    public User( ) {
+    public User() {
 
     }
 
-    public User( String email, String authProvider, String username) {
+    public User(String email, String authProvider, String username) {
         this.email = email;
         this.authProvider = authProvider;
         this.username = username;
     }
 
 
+    public boolean isAdmin_role() {
+        return admin_role;
+    }
 
+    public void setAdmin_role(boolean admin_role) {
+        this.admin_role = admin_role;
+    }
 
 
     public String getPayment_method() {

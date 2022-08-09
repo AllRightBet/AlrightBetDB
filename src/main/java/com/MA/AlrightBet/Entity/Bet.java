@@ -18,7 +18,9 @@ public class Bet {
 
     private String favor_opponent;
 
+    @OneToOne
     private User voter;
+    @OneToOne
     private FightCard event;
 
 
@@ -30,6 +32,14 @@ public class Bet {
         this.event = event;
     }
 
+
+    public String getFavor_opponent() {
+        return favor_opponent;
+    }
+
+    public void setFavor_opponent(String favor_opponent) {
+        this.favor_opponent = favor_opponent;
+    }
 
     public int getId() {
         return id;
