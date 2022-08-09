@@ -1,8 +1,5 @@
 package com.MA.AlrightBet.Service;
-
-
 import com.MA.AlrightBet.Entity.Admin;
-import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.List;
 
