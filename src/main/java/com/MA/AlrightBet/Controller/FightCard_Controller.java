@@ -32,8 +32,8 @@ public class FightCard_Controller {
     }
 
     @DeleteMapping("/fight-card/{id}")
-    public void delete(@PathVariable int id) {
-        this.fightCardService.delete_fight_card(id);
+    public Boolean delete(@PathVariable int id) {
+        return this.fightCardService.delete_fight_card(id);
     }
 
     @PutMapping("/fight-card")

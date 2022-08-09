@@ -37,8 +37,14 @@ public class Admin_impl implements AdminService {
     }
 
     @Override
-    public void delete_admin(int id) {
-        this.adminDao.deleteById(id);
+    public Boolean delete_admin(int id) {
+        Optional<Admin> q = this.adminDao.findById(id);
+        if (q.isPresent()) {
+            this.adminDao.deleteById(id);
+            return true;
+        }
+        else return false;
+
     }
 
     @Override

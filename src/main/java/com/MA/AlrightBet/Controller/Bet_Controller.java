@@ -30,8 +30,8 @@ public class Bet_Controller {
     }
 
     @DeleteMapping("/bet/{id}")
-    public void delete(@PathVariable int id) {
-        this.betService.delete_bet(id);
+    public Boolean delete(@PathVariable int id) {
+        return this.betService.delete_bet(id);
     }
 
     @PutMapping("/bet")

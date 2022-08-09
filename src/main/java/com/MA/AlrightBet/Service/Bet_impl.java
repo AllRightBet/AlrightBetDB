@@ -41,8 +41,13 @@ public class Bet_impl implements BetService {
     }
 
     @Override
-    public void delete_bet(int id) {
-        this.betDao.deleteById(id);
+    public Boolean delete_bet(int id) {
+        Optional<Bet> q = this.betDao.findById(id);
+        if (q.isPresent()) {
+            this.betDao.deleteById(id);
+            return true;
+        }
+        else return false;
     }
 
     @Override

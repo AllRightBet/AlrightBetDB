@@ -10,6 +10,6 @@ public interface FightCardService {
     public List<FightCard> fetch_all_fight_card();
     public FightCard getFightCardById(int id);
     public FightCard create_fight_card(FightCard fightCard);
-    public void delete_fight_card(int id);
+    public Boolean delete_fight_card(int id);
     public FightCard update_fight_card(FightCard fightCard);
 }

@@ -10,6 +10,6 @@ public interface BetService {
     public List<Bet> fetch_all_bets();
     public Bet getBetById(int id);
     public Bet create_bet(Bet bet);
-    public void delete_bet(int id);
+    public Boolean delete_bet(int id);
     public Bet update_bet(Bet bet);
 }
