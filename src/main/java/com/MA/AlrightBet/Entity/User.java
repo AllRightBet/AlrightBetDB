@@ -5,10 +5,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
-@Table(name = "tbl_adminUsers")
+@Table(name = "tbl_Users")
 public class User {
     @Id
-    @Column(name = "pk")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -26,6 +26,20 @@ public class User {
     private int age;
     private ArrayList<Bet> bet_history;
 
+
+
+
+
+    public User( ) {
+
+    }
+
+    public User(int id, String email, String authProvider, String username) {
+        this.id = id;
+        this.email = email;
+        this.authProvider = authProvider;
+        this.username = username;
+    }
 
 
 
@@ -109,26 +123,6 @@ public class User {
 
     public void setBet_history(ArrayList<Bet> bet_history) {
         this.bet_history = bet_history;
-    }
-
-
-
-
-
-
-
-
-
-
-    public User( ) {
-
-    }
-
-    public User(int id, String email, String authProvider, String username) {
-        this.id = id;
-        this.email = email;
-        this.authProvider = authProvider;
-        this.username = username;
     }
 
     public int getId() {

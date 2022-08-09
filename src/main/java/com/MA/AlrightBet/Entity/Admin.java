@@ -7,14 +7,12 @@ import javax.persistence.*;
 @Table(name = "tbl_adminUsers")
 public class Admin {
     @Id
-    @Column(name = "pk")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
 
     private String email;
-
-    private String authProvider;
 
     private String username;
 
@@ -26,7 +24,6 @@ public class Admin {
     public Admin(int id, String email, String authProvider, String username) {
         this.id = id;
         this.email = email;
-        this.authProvider = authProvider;
         this.username = username;
     }
 
@@ -44,14 +41,6 @@ public class Admin {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getAuthProvider() {
-        return authProvider;
-    }
-
-    public void setAuthProvider(String authProvider) {
-        this.authProvider = authProvider;
     }
 
     public String getUsername() {
