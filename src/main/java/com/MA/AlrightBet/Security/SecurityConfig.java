@@ -40,12 +40,23 @@ public class SecurityConfig {
                             //CHECK IF EMAIL ALREADY IN DATABASE
                             if (userDao.findByEmail(user_auth_details.getAttribute("email")).isEmpty()) {
                                 User user = new User(user_auth_details.getAttribute("email"), user_auth_details.getAttribute("iss").toString(), user_auth_details.getName());
-                                user.setAdmin_role(adminDao.findByEmail(user.getEmail()).isPresent());
+//                                user.setAdmin_role(adminDao.findByEmail(user.getEmail()).isPresent());
                                 userDao.save(user);
                             }
 
                             //REDIRECT TO USER PROFILE PAGE
-                            response.sendRedirect("/home");
+                            System.out.println(request.getHttpServletMapping());
+                            System.out.println(request.getContextPath());
+                            System.out.println(request.getRequestURI());
+                            System.out.println(request.getServletPath());
+                            System.out.println("-----------------");
+                            System.out.println("-----------------");
+                            System.out.println("-----------------");
+                            System.out.println("-----------------");
+                            System.out.println("-----------------");
+                            System.out.println("-----------------");
+                            System.out.println("-----------------");
+                            response.sendRedirect("/api/v1/Admin");
                         }
                 );
         return http.build();

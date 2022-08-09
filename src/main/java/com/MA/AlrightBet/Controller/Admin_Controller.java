@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController("api/v1/Admin")
+@RestController
 public class Admin_Controller {
 
 
-    @GetMapping
+    @GetMapping("api/v1/Admin")
     public String get_all(@AuthenticationPrincipal OAuth2User principal) {
         return "admin";
     }

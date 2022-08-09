@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController("api/v1/Bet")
+@RestController
 public class Bet_Controller {
 
-    @GetMapping
+    @GetMapping("api/v1/Bet")
     public String get_all(@AuthenticationPrincipal OAuth2User principal) {
         return "bet";
     }

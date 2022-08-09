@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController("api/v1/User")
+@RestController
 public class User_Controller {
-    @GetMapping
+    @GetMapping("api/v1/User")
     public String get_all(@AuthenticationPrincipal OAuth2User principal) {
         return "users";
     }
