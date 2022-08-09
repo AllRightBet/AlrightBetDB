@@ -45,20 +45,17 @@ public class SecurityConfig {
                             }
 
                             //REDIRECT TO USER PROFILE PAGE
-                            System.out.println(request.getHttpServletMapping());
-                            System.out.println(request.getContextPath());
-                            System.out.println(request.getRequestURI());
-                            System.out.println(request.getServletPath());
-                            System.out.println("-----------------");
-                            System.out.println("-----------------");
-                            System.out.println("-----------------");
-                            System.out.println("-----------------");
-                            System.out.println("-----------------");
-                            System.out.println("-----------------");
-                            System.out.println("-----------------");
-                            response.sendRedirect("/api/v1/Admin");
+                            response.sendRedirect("/api/v1/admin");
                         }
-                );
+                )
+                .failureHandler(
+                        //FAILURE LOGIN
+                        (request, response, e) -> {
+                            System.out.println(e.getMessage());
+                            response.sendRedirect("/");
+                        }
+                )
+        ;
         return http.build();
     }
 
