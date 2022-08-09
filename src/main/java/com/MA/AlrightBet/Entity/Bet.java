@@ -1,6 +1,8 @@
 package com.MA.AlrightBet.Entity;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,10 +16,9 @@ public class Bet {
 
     private double bet_amount;
 
-    @ManyToMany
-    private User voter;
+    private String favor_opponent;
 
-    @ManyToMany
+    private User voter;
     private FightCard event;
 
 

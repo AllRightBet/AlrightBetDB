@@ -18,7 +18,9 @@ public class FightCard {
     private String opponent_2;
 
     //VOTES OF COMPETITORS
+    @OneToMany
     private List<Bet> opponent_1_bets;
+    @OneToMany
     private List<Bet> opponent_2_bets;
 
 
