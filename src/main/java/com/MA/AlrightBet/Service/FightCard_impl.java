@@ -41,7 +41,7 @@ public class FightCard_impl implements FightCardService {
     }
 
     @Override
-    public Boolean delete_fight_card(int id) {
+    public boolean delete_fight_card(int id) {
         Optional<FightCard> q = this.fightCardDao.findById(id);
         if (q.isPresent()) {
             this.fightCardDao.deleteById(id);

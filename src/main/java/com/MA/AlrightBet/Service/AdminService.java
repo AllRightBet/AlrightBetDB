@@ -7,6 +7,6 @@ public interface AdminService {
     public List<Admin> fetch_all_admins();
     public Admin getAdminById(int id);
     public Admin create_admin(Admin admin);
-    public Boolean delete_admin(int id);
+    public boolean delete_admin(int id);
     public Admin update_admin(Admin admin);
 }

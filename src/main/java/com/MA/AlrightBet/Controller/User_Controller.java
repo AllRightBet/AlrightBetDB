@@ -32,7 +32,7 @@ public class User_Controller {
     }
 
     @DeleteMapping("/user/{id}")
-    public Boolean delete(@PathVariable int id) {
+    public boolean delete(@PathVariable int id) {
         return this.userService.delete_user(id);
     }
 

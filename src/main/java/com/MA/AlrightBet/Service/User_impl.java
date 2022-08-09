@@ -1,6 +1,7 @@
 package com.MA.AlrightBet.Service;
 
 
+import com.MA.AlrightBet.Dao.AdminDao;
 import com.MA.AlrightBet.Dao.UserDao;
 import com.MA.AlrightBet.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ public class User_impl implements UserService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private AdminDao adminDao;
 
 
     @Override
@@ -33,11 +36,15 @@ public class User_impl implements UserService {
 
     @Override
     public User create_user(User user) {
+        if( this.adminDao.findByEmail(user.getEmail()).isPresent()  )
+        {
+            user.setAdmin_role(true);
+        }
         return this.userDao.save(user);
     }
 
     @Override
-    public Boolean delete_user(int id) {
+    public boolean delete_user(int id) {
         Optional<User> q = this.userDao.findById(id);
         if (q.isPresent()) {
             this.userDao.deleteById(id);

@@ -9,9 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface AdminDao extends JpaRepository<Admin, Integer> {
-    @Query(value = " SELECT * FROM tbl_users WHERE email = :email ", nativeQuery = true)
+    @Query(value = " SELECT * FROM tbl_adminUsers WHERE email = :email ", nativeQuery = true)
     Optional<Admin> findByEmail(String email);
 
-    @Query(value = " SELECT * FROM tbl_users", nativeQuery = true)
+    @Query(value = " SELECT * FROM tbl_adminUsers", nativeQuery = true)
     List<Admin> listAllAccounts();
 }

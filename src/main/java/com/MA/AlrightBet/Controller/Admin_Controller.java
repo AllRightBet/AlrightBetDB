@@ -31,7 +31,7 @@ public class Admin_Controller {
     }
 
     @DeleteMapping("/admin/{id}")
-    public Boolean delete(@PathVariable int id) {
+    public boolean delete(@PathVariable int id) {
         return this.adminService.delete_admin(id);
     }
 
