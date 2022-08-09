@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Admin_Controller {
 
 
-    @GetMapping("api/v1/Admin")
+    @GetMapping("api/v1/admin")
     public String get_all(@AuthenticationPrincipal OAuth2User principal) {
         return "admin";
     }

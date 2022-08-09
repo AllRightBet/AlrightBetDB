@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Bet_Controller {
 
-    @GetMapping("api/v1/Bet")
+    @GetMapping("api/v1/bet")
     public String get_all(@AuthenticationPrincipal OAuth2User principal) {
         return "bet";
     }

@@ -40,7 +40,7 @@ public class SecurityConfig {
                             //CHECK IF EMAIL ALREADY IN DATABASE
                             if (userDao.findByEmail(user_auth_details.getAttribute("email")).isEmpty()) {
                                 User user = new User(user_auth_details.getAttribute("email"), user_auth_details.getAttribute("iss").toString(), user_auth_details.getName());
-//                                user.setAdmin_role(adminDao.findByEmail(user.getEmail()).isPresent());
+                                user.setAdmin_role(adminDao.findByEmail(user.getEmail()).isPresent());
                                 userDao.save(user);
                             }
 
