@@ -9,6 +9,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin
 public class Admin_Controller {
 
     @Autowired

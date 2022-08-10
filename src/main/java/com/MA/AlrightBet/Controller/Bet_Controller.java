@@ -9,6 +9,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin
 public class Bet_Controller {
 
     @Autowired

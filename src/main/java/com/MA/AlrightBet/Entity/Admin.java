@@ -4,7 +4,7 @@ package com.MA.AlrightBet.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tbl_adminUsers")
+@Table(name = "tbl_adminusers")
 public class Admin {
     @Id
     @Column(name = "id")
