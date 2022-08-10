@@ -15,16 +15,16 @@ public class Admin {
     private String email;
 
 
-    public Admin( ) {
+    public Admin() {
 
     }
 
-    public Admin(  String email, String authProvider, String username) {
+    public Admin(String email, String authProvider, String username) {
         this.email = email;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -32,7 +32,7 @@ public class Admin {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
