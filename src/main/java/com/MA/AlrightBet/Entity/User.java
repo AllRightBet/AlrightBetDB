@@ -20,7 +20,7 @@ public class User {
     private String payment_method;
     private String profilePic_uri;
     private String firstName;
-    private String LastName;
+    private String lastName;
     private String address;
     private String state;
     private String city;
@@ -86,11 +86,11 @@ public class User {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getAddress() {
