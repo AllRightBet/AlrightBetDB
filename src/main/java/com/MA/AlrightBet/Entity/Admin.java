@@ -19,7 +19,7 @@ public class Admin {
 
     }
 
-    public Admin(String email, String authProvider, String username) {
+    public Admin(String email, String authProvider ) {
         this.email = email;
     }
 

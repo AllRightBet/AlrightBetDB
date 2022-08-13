@@ -5,6 +5,7 @@ import com.MA.AlrightBet.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 
@@ -14,8 +15,6 @@ public class User_Controller {
 
     @Autowired
     UserService userService;
-
-
 
     @GetMapping("/user")
     public List<User> get_all() {

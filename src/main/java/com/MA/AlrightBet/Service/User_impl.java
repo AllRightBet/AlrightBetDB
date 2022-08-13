@@ -3,6 +3,7 @@ package com.MA.AlrightBet.Service;
 
 import com.MA.AlrightBet.Dao.AdminDao;
 import com.MA.AlrightBet.Dao.UserDao;
+import com.MA.AlrightBet.Entity.Admin;
 import com.MA.AlrightBet.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,9 +37,9 @@ public class User_impl implements UserService {
 
     @Override
     public User create_user(User user) {
-        if( this.adminDao.findByEmail(user.getEmail()).isPresent()  )
+        if( user.isAdmin_role() )
         {
-            user.setAdmin_role(true);
+            this.adminDao.save(new Admin(user.getEmail() , user.getAuthProvider() )  );
         }
         return this.userDao.save(user);
     }
