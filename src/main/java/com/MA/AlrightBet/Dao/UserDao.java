@@ -9,9 +9,11 @@ import java.util.Optional;
 
 @Repository
 public interface UserDao  extends JpaRepository<User, Integer> {
-    @Query(value = " SELECT * FROM tbl_users WHERE email = :email ", nativeQuery = true)
+    @Query(value = "SELECT * FROM tbl_users WHERE email = :email ", nativeQuery = true)
     Optional<User> findByEmail(String email);
 
-    @Query(value = " SELECT * FROM tbl_users", nativeQuery = true)
+    @Query(value = "SELECT * FROM tbl_users", nativeQuery = true)
     List<User> listAllAccounts();
+    @Query(value = "SELECT email FROM tbl_users", nativeQuery = true)
+    List<String> listAllEmails();
 }

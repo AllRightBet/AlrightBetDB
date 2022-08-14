@@ -41,6 +41,9 @@ public class FightCard {
     public FightCard( ) {
     }
 
+
+
+
     public FightCard(String opponent_1, String opponent_2, List<Bet> opponent_1_bets, List<Bet> opponent_2_bets) {
         this.opponent_1 = opponent_1;
         this.opponent_2 = opponent_2;

@@ -34,12 +34,21 @@ public class User_impl implements UserService {
         }
         return user.get();
     }
+    @Override
+    public User getUserByEmail(String email) {
+        Optional<User> user = this.userDao.findByEmail(email);
+        if (user.isEmpty()) {
+            return null;
+        }
+        return user.get();
+    }
 
     @Override
     public User create_user(User user) {
-        if( user.isAdmin_role() )
-        {
-            this.adminDao.save(new Admin(user.getEmail() , user.getAuthProvider() )  );
+        if(  this.userDao.listAllEmails().contains(user.getEmail())   ) return null;
+
+        if (user.isAdmin_role()) {
+            this.adminDao.save(new Admin(user.getEmail(), user.getAuthProvider()));
         }
         return this.userDao.save(user);
     }

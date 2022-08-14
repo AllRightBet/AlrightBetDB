@@ -15,6 +15,8 @@ public class User {
 
     private double wallet_balance;
     private String email;
+
+    private String password;
     private String authProvider;
     private String username;
     private String payment_method;
@@ -40,6 +42,15 @@ public class User {
         this.authProvider = authProvider;
         this.username = username;
         this.wallet_balance = 10d;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 

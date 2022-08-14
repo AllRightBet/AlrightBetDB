@@ -25,6 +25,10 @@ public class User_Controller {
     public User getByID(@PathVariable int id) {
         return this.userService.getUserById(id);
     }
+    @GetMapping("/user-email")
+    public User getByEmail(@RequestParam(name="email", defaultValue="" ) String email) {
+        return this.userService.getUserByEmail(email);
+    }
 
     @PostMapping("/user")
     public User create(@RequestBody User user) {
