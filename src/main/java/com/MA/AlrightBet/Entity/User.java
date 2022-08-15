@@ -7,15 +7,13 @@ import java.util.ArrayList;
 @Entity
 @Table(name = "tbl_Users")
 public class User {
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-
     private double wallet_balance;
     private String email;
-
     private String password;
     private String authProvider;
     private String username;
@@ -29,13 +27,17 @@ public class User {
     private int zip;
     private int age;
     private boolean admin_role;
-
     private ArrayList<Bet> bet_history;
+
+
 
 
     public User() {
 
     }
+
+
+
 
     public User(String email, String authProvider, String username) {
         this.email = email;
