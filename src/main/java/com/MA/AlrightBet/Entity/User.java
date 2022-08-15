@@ -33,6 +33,7 @@ public class User {
 
 
     public User() {
+        this.wallet_balance = 0;
 
     }
 
@@ -43,7 +44,7 @@ public class User {
         this.email = email;
         this.authProvider = authProvider;
         this.username = username;
-        this.wallet_balance = 10d;
+        this.wallet_balance = 0;
     }
 
 
