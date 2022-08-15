@@ -26,6 +26,11 @@ public class Bet_impl implements BetService {
     }
 
     @Override
+    public List<Bet> fetch_top_bets() {
+        return  this.betDao.listTopBets();
+    }
+
+    @Override
     public Bet getBetById(int id) {
         Optional<Bet> bet = this.betDao.findById(id);
         if (bet.isEmpty()) {

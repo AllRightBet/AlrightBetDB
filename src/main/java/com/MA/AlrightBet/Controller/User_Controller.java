@@ -1,4 +1,5 @@
 package com.MA.AlrightBet.Controller;
+import com.MA.AlrightBet.Entity.Bet;
 import com.MA.AlrightBet.Entity.FightCard;
 import com.MA.AlrightBet.Entity.User;
 import com.MA.AlrightBet.Service.UserService;
@@ -6,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,6 +30,11 @@ public class User_Controller {
     @GetMapping("/user-email")
     public User getByEmail(@RequestParam(name="email", defaultValue="" ) String email) {
         return this.userService.getUserByEmail(email);
+    }
+
+    @GetMapping("/user-history")
+    public ArrayList<Bet> getUserHistory(@RequestParam(name="email", defaultValue="" ) String email) {
+        return this.userService.getUserHistory(email);
     }
 
     @PostMapping("/user")

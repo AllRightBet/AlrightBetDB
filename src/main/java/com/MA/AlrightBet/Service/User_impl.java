@@ -4,10 +4,12 @@ package com.MA.AlrightBet.Service;
 import com.MA.AlrightBet.Dao.AdminDao;
 import com.MA.AlrightBet.Dao.UserDao;
 import com.MA.AlrightBet.Entity.Admin;
+import com.MA.AlrightBet.Entity.Bet;
 import com.MA.AlrightBet.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +36,7 @@ public class User_impl implements UserService {
         }
         return user.get();
     }
+
     @Override
     public User getUserByEmail(String email) {
         Optional<User> user = this.userDao.findByEmail(email);
@@ -44,8 +47,15 @@ public class User_impl implements UserService {
     }
 
     @Override
+    public ArrayList<Bet> getUserHistory(String email) {
+        Optional<User> user = this.userDao.findByEmail(email);
+        if (user.isEmpty()) return null;
+        return user.get().getBet_history();
+    }
+
+    @Override
     public User create_user(User user) {
-        if(  this.userDao.listAllEmails().contains(user.getEmail())   ) return null;
+        if (this.userDao.listAllEmails().contains(user.getEmail())) return null;
 
         if (user.isAdmin_role()) {
             this.adminDao.save(new Admin(user.getEmail(), user.getAuthProvider()));

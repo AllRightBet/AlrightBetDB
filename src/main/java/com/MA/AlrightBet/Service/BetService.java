@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface BetService {
     public List<Bet> fetch_all_bets();
+    public List<Bet> fetch_top_bets();
     public Bet getBetById(int id);
     public Bet create_bet(Bet bet);
     public boolean delete_bet(int id);

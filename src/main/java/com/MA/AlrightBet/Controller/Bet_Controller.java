@@ -19,6 +19,10 @@ public class Bet_Controller {
     public List<Bet> get_all() {
         return this.betService.fetch_all_bets();
     }
+    @GetMapping("/top-bets")
+    public List<Bet> top_bets() {
+        return this.betService.fetch_top_bets();
+    }
 
     @GetMapping("/bet/{id}") // GET ID
     public Bet getByID(@PathVariable int id) {
