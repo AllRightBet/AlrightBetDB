@@ -20,7 +20,7 @@ public class Bet {
 
     @OneToOne
     private User voter;
-    @OneToOne
+    @ManyToOne
     private FightCard event;
 
 
