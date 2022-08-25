@@ -16,7 +16,7 @@ public class Bet {
 
     private double bet_amount;
 
-    private String favor_opponent;
+    private int favor_opponent;
 
     @OneToOne
     private User voter;
@@ -26,18 +26,19 @@ public class Bet {
 
     public Bet( ) {
     }
-    public Bet(double bet_amount, User voter, FightCard event) {
+    public Bet(double bet_amount, User voter, FightCard event, int favor_opponent) {
         this.bet_amount = bet_amount;
         this.voter = voter;
         this.event = event;
+        this.favor_opponent = favor_opponent;
     }
 
 
-    public String getFavor_opponent() {
+    public int getFavor_opponent() {
         return favor_opponent;
     }
 
-    public void setFavor_opponent(String favor_opponent) {
+    public void setFavor_opponent(int favor_opponent) {
         this.favor_opponent = favor_opponent;
     }
 

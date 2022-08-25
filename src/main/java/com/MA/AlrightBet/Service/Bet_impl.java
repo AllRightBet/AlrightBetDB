@@ -18,6 +18,8 @@ public class Bet_impl implements BetService {
 
     @Autowired
     private BetDao betDao;
+    @Autowired
+    private FightCardDao fightCardDao;
 
 
     @Override
@@ -27,7 +29,7 @@ public class Bet_impl implements BetService {
 
     @Override
     public List<Bet> fetch_top_bets() {
-        return  this.betDao.listTopBets();
+        return this.betDao.listTopBets();
     }
 
     @Override
@@ -42,6 +44,16 @@ public class Bet_impl implements BetService {
 
     @Override
     public Bet create_bet(Bet bet) {
+        Optional<FightCard> event = this.fightCardDao.findById(bet.getEvent().getId());
+        if (event.isPresent()) {
+            if (bet.getFavor_opponent() == 1) {
+                event.get().getOpponent_1_bets().add(bet);
+                this.fightCardDao.save(event.get());
+            } else if (bet.getFavor_opponent() == 2) {
+                event.get().getOpponent_2_bets().add(bet);
+                this.fightCardDao.save(event.get());
+            }
+        }
         return this.betDao.save(bet);
     }
 
@@ -51,8 +63,7 @@ public class Bet_impl implements BetService {
         if (q.isPresent()) {
             this.betDao.deleteById(id);
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
     @Override

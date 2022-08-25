@@ -18,9 +18,9 @@ public class FightCard {
     private String opponent_2;
 
     //VOTES OF COMPETITORS
-    @OneToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     private List<Bet> opponent_1_bets;
-    @OneToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     private List<Bet> opponent_2_bets;
 
 
