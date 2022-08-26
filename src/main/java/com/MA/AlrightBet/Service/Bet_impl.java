@@ -7,6 +7,7 @@ import com.MA.AlrightBet.Dao.UserDao;
 import com.MA.AlrightBet.Entity.Admin;
 import com.MA.AlrightBet.Entity.Bet;
 import com.MA.AlrightBet.Entity.FightCard;
+import com.MA.AlrightBet.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,11 @@ public class Bet_impl implements BetService {
     @Override
     public List<Bet> fetch_all_bets() {
         return this.betDao.findAll();
+    }
+
+    @Override
+    public List<Bet> fetch_user_history(User user) {
+        return this.betDao.fetch_user_history(user);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.MA.AlrightBet.Controller;
 import com.MA.AlrightBet.Entity.Admin;
 import com.MA.AlrightBet.Entity.Bet;
+import com.MA.AlrightBet.Entity.User;
 import com.MA.AlrightBet.Service.BetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,12 @@ public class Bet_Controller {
     public List<Bet> get_all() {
         return this.betService.fetch_all_bets();
     }
+
+    @GetMapping("/user-history")
+    public List<Bet> get_user_history(@RequestBody User user) {
+        return this.betService.fetch_user_history(user);
+    }
+
     @GetMapping("/top-bets")
     public List<Bet> top_bets() {
         return this.betService.fetch_top_bets();
