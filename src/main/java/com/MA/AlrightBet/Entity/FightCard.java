@@ -1,5 +1,7 @@
 package com.MA.AlrightBet.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,11 +20,12 @@ public class FightCard {
     private String opponent_2;
 
     //VOTES OF COMPETITORS
+    @JsonIgnore
     @ManyToMany(cascade = {CascadeType.ALL})
     private List<Bet> opponent_1_bets;
+    @JsonIgnore
     @ManyToMany(cascade = {CascadeType.ALL})
     private List<Bet> opponent_2_bets;
-
 
 
     //    //STATS OF COMPETITORS
@@ -36,12 +39,8 @@ public class FightCard {
     //
 
 
-
-
-    public FightCard( ) {
+    public FightCard() {
     }
-
-
 
 
     public FightCard(String opponent_1, String opponent_2, List<Bet> opponent_1_bets, List<Bet> opponent_2_bets) {
