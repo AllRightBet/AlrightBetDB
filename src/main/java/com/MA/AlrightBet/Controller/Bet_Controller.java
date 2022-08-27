@@ -22,8 +22,8 @@ public class Bet_Controller {
     }
 
     @GetMapping("/user-history")
-    public List<Bet> get_user_history(@RequestBody User user) {
-        return this.betService.fetch_user_history(user);
+    public List<Bet> get_user_history(@RequestParam(value = "email", defaultValue = "null") String email) {
+        return this.betService.fetch_user_history(email);
     }
 
     @GetMapping("/top-bets")

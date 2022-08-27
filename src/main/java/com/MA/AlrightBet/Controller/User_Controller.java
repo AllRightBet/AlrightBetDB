@@ -31,7 +31,7 @@ public class User_Controller {
     public User getByEmail(@RequestParam(name="email", defaultValue="" ) String email) {
         return this.userService.getUserByEmail(email);
     }
-    
+
     @PostMapping("/user")
     public User create(@RequestBody User user) {
         return this.userService.create_user(user);

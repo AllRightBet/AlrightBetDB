@@ -22,15 +22,20 @@ public class Bet_impl implements BetService {
     @Autowired
     private FightCardDao fightCardDao;
 
+    @Autowired
+    UserService userService;
+
 
     @Override
     public List<Bet> fetch_all_bets() {
         return this.betDao.findAll();
     }
 
+
     @Override
-    public List<Bet> fetch_user_history(User user) {
-        return this.betDao.fetch_user_history(user);
+    public List<Bet> fetch_user_history(String email) {
+
+        return this.betDao.fetch_user_history(this.userService.getUserByEmail(email).getId());
     }
 
     @Override

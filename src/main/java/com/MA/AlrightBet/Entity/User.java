@@ -34,7 +34,6 @@ public class User {
 
     public User() {
         this.wallet_balance = 0;
-
     }
 
 
