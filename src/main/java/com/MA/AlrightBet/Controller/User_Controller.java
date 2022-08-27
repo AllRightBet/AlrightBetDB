@@ -31,12 +31,7 @@ public class User_Controller {
     public User getByEmail(@RequestParam(name="email", defaultValue="" ) String email) {
         return this.userService.getUserByEmail(email);
     }
-
-    @GetMapping("/user-history")
-    public ArrayList<Bet> getUserHistory(@RequestParam(name="email", defaultValue="" ) String email) {
-        return this.userService.getUserHistory(email);
-    }
-
+    
     @PostMapping("/user")
     public User create(@RequestBody User user) {
         return this.userService.create_user(user);
