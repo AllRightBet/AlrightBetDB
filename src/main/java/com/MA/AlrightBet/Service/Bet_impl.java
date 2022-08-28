@@ -62,7 +62,7 @@ public class Bet_impl implements BetService {
             } else if (bet.getFavor_opponent() == 2) {
                 event.get().getOpponent_2_bets().add(bet);
             }
-            this.fightCardDao.save(event.get());
+            //  this.fightCardDao.save(event.get());
         }
         return this.betDao.save(bet);
     }

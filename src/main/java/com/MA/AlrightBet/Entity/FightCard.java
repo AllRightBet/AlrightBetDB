@@ -27,6 +27,10 @@ public class FightCard {
     @ManyToMany(cascade = {CascadeType.ALL})
     private List<Bet> opponent_2_bets;
 
+    // fight card must close and then distribute winner earnings before next fight card is created
+    private boolean open_card;
+
+    private int winning_opponent;
 
     //    //STATS OF COMPETITORS
     //    private int opponent_1_height;
@@ -48,6 +52,7 @@ public class FightCard {
         this.opponent_2 = opponent_2;
         this.opponent_1_bets = opponent_1_bets;
         this.opponent_2_bets = opponent_2_bets;
+        this.open_card = true;
     }
 
     public int getId() {
@@ -89,4 +94,23 @@ public class FightCard {
     public void setOpponent_2_bets(List<Bet> opponent_2_bets) {
         this.opponent_2_bets = opponent_2_bets;
     }
+
+
+    public boolean isOpen_card() {
+        return open_card;
+    }
+
+    public void setOpen_card(boolean open_card) {
+        this.open_card = open_card;
+    }
+
+    public int getWinning_opponent() {
+        return winning_opponent;
+    }
+
+    public void setWinning_opponent(int winning_opponent) {
+        this.winning_opponent = winning_opponent;
+    }
+
+
 }
